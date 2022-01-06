@@ -30,8 +30,8 @@ async function refreshAccessToken(token) {
 export default NextAuth({
     providers: [
         SpotifyProvider({
-            clientId: process.env.NEXT_PUBLIC_CLIENT_ID,
-            clientSecret: process.env.NEXT_PUBLIC_CLIENT_SECRET,
+            clientId: '50538505dd3b4339bc0d0e4296f759cd',
+            clientSecret: 'b8fdc28889dc4ed68af7c3839d880647',
             authorization: LOGIN_URL,
         }),
     ],
@@ -41,7 +41,7 @@ export default NextAuth({
     },
     callbacks: {
         async jwt({ token, account, user }) {
-            // Initil Sign In
+            // Initial Sign In
             if (account && user) {
                 return {
                     ...token,
