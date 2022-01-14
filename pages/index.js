@@ -1,3 +1,4 @@
+import { getSession } from 'next-auth/react'
 import Head from 'next/head'
 import Center from '../components/Center'
 import Sidebar from '../components/Sidebar'
@@ -18,4 +19,16 @@ export default function Home() {
       
     </div>
   )
+}
+//Pre rendering the props and user info
+//It will give us the access token before the client  
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  return{
+    props: {
+      session
+    }
+  }
 }
