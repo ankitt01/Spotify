@@ -36,7 +36,6 @@ function Center() {
         }).catch(error => console.log("something went wrong!", error));
     }, [spotifyApi,playlistId])
 
-    console.log(playlist)
     return (
         <div className=" flex-grow text-white h-screen overflow-y-scroll scrollbar-hide">
 
