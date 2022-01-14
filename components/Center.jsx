@@ -6,6 +6,7 @@ import { useRecoilState, useRecoilValue } from "recoil"
 import { playlistIdState, playlistState } from "../atoms/playlistAtom"
 import useSpotify from "../hooks/useSpotify"
 import Songs from "./Songs"
+import {signOut} from "next-auth/react"
 
 const colors = [
     "from-indigo-500",
@@ -37,14 +38,14 @@ function Center() {
 
     console.log(playlist)
     return (
-        <div className=" flex-grow text-white">
+        <div className=" flex-grow text-white h-screen overflow-y-scroll scrollbar-hide">
 
 
             {/* Header with the user name */}
 
 
             <header className="absolute top-5 right-8">
-                <div className="flex items-center bg-black space-x-3 opactity-90 hover:opacity-80 cursor-pointer rounded-full p-1 pr-2">
+                <div className="flex items-center bg-black space-x-3 opactity-90 hover:opacity-80 cursor-pointer rounded-full p-1 pr-2" onClick={signOut}>
                     <img src={session?.user.image} alt="userImage" className="rounded-full w-10 h-10"/>
                     <h2>{session?.user.name}</h2>
                     <ChevronDownIcon className="h-5 w-5" />
